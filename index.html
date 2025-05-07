@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫良</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>猫良</h1>
+        
+        <!-- 管理员控制面板，默认隐藏 -->
+        <div class="admin-panel" id="adminPanel" style="display: none;">
+            <div class="upload-section">
+                <div class="upload-tabs">
+                    <button class="tab-btn active" data-tab="image">上传图片</button>
+                    <button class="tab-btn" data-tab="video">上传视频</button>
+                </div>
+                
+                <div class="upload-area" id="imageDropZone" data-type="image">
+                    <input type="file" id="imageFileInput" accept="image/*" multiple hidden>
+                    <div class="upload-content">
+                        <img src="upload-icon.svg" alt="上传图标" class="upload-icon">
+                        <p>点击或拖拽图片到这里上传</p>
+                    </div>
+                </div>
+                
+                <div class="upload-area" id="videoDropZone" data-type="video" style="display: none;">
+                    <input type="file" id="videoFileInput" accept="video/*" multiple hidden>
+                    <div class="upload-content">
+                        <img src="upload-icon.svg" alt="上传图标" class="upload-icon">
+                        <p>点击或拖拽视频到这里上传</p>
+                        <span class="upload-hint">支持MP4, WebM等格式，建议小于50MB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-controls">
+                <button id="clearAllBtn" class="clear-all-btn">清除所有媒体</button>
+                <button id="logoutBtn" class="logout-btn">退出管理模式</button>
+            </div>
+        </div>
+
+        <!-- 登录按钮，默认显示 -->
+        <div class="admin-login" id="adminLogin">
+            <button id="adminLoginBtn" class="admin-login-btn">管理员登录</button>
+        </div>
+        
+        <div class="gallery" id="mediaGallery">
+            <!-- 图片和视频将在这里动态显示 -->
+        </div>
+    </div>
+
+    <!-- 图片模态框 -->
+    <div class="modal" id="imageModal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <!-- 视频模态框 -->
+    <div class="modal" id="videoModal">
+        <span class="close-btn">&times;</span>
+        <video class="modal-content" id="modalVideo" controls></video>
+    </div>
+
+    <!-- 管理员登录模态框 -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-container">
+            <h2>管理员登录</h2>
+            <input type="password" id="adminPassword" placeholder="请输入管理员密码">
+            <div class="login-buttons">
+                <button id="loginSubmitBtn">登录</button>
+                <button id="loginCancelBtn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
